@@ -179,7 +179,7 @@ public class SharedLibraryLoader {
 
 	private InputStream readFile (String path) {
 		if (nativesJar == null) {
-			InputStream input = SharedLibraryLoader.class.getResourceAsStream("/" + path);
+			InputStream input = ClassLoader.getSystemClassLoader().getResourceAsStream("/" + path);
 			if (input == null) throw new SharedLibraryLoadRuntimeException("Unable to read file for extraction: " + path);
 			return input;
 		}
